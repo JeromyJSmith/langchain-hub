@@ -20,8 +20,7 @@ def check_files(files):
 def check_all_folders():
     for folder in folders:
         folder_path = Path(folder)
-        files = [x for x in folder_path.iterdir() if x.is_file()]
-        if len(files) > 0:
+        if files := [x for x in folder_path.iterdir() if x.is_file()]:
             try:
                 check_files(files)
             except Exception as e:
